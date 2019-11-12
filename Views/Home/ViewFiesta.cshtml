@@ -1,0 +1,22 @@
+
+
+ <div> <h1 class="col-sm-4 display-7 col-sm-6"> Dojo Activity</h1>
+<a href="/main" class="m-2 col-sm-2">Home</a>
+<a href="/logout" class="m-2 col-sm-2">Logout</a>
+ <a href="/join/@ViewBag.fiesta.FiestaId" class="m2- col-sm-2">Join</a> 
+</div>
+<div class="comtainer">
+
+    <div class="display-1">@ViewBag.fiesta.Tittle</div>
+   
+   
+
+     <div class="m-2"><label class="m-1">Event Coordinator:</label> <span>@ViewBag.fiesta.PlannerName </span></div> 
+     <label class="m-2"><label class="m-1">Description:</label> <p>@ViewBag.fiesta.Description</p></div> 
+     <label class="m-2"><label class="m-1">Participants:</label> @{ 
+         foreach(var u in @ViewBag.participants.JoinedUsers)
+     { <li>@u.Planner.name </li>}
+     }
+     </div> 
+    
+</div>

@@ -1,0 +1,68 @@
+
+
+<div class="container">
+<h1 class="col-sm-4 display-7"> Dojo Activity</h1>
+<span class="col-sm-4">Welcome @ViewBag.User.name</span>
+<a href="logout" class="float-right">Logout</a>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Activity</th>
+      <th scope="col">Date & Time</th>
+      <th scope="col">Duration</th>
+      <th scope="col">Event Coordinator</th>
+      <th scope="col">No. of Participants</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+      @{
+          foreach (var fiesta in ViewBag.fiestas){
+          if (fiesta.Date > DateTime.Now){
+    <tr>
+      <td> 
+      <a href="/view/@fiesta.FiestaId">@fiesta.Tittle</a>   </td>
+      <td> <span>@fiesta.Date.ToString("MMMM dd, yyyy")</span> &ohm;  @@ <span> @fiesta.Time.ToString()</span> </td>
+      <td> <span>@fiesta.Duration</span> <span class="m-1">@fiesta.Tiempo</span> </td>
+      <td> @fiesta.PlannerName </td>
+        
+
+      <td>@fiesta.JoinedUsers.Count</td>
+     
+
+        <td>  @{
+                    bool isGoing = false;
+        
+                    foreach(var guest in fiesta.JoinedUsers)
+                    {
+                      
+                        if(guest.UserId == ViewBag.User.UserId)
+                        {
+                            isGoing = true;
+                            break;
+                        }
+                    }
+                    if(fiesta.PlannerId == ViewBag.User.UserId)
+                    {
+                       
+                        <a href="/delete/@fiesta.FiestaId" class="btn btn-danger btn-xs">Delete</a> 
+                        
+                    }
+                    else if(isGoing)
+                    {
+                        <a href="/leave/@fiesta.FiestaId" class="btn btn-warning btn-xs">Leave</a> 
+                    }
+                    else
+                    {
+                        <a href="/join/@fiesta.FiestaId" class="btn btn-primary btn-xs">Join</a>   
+                    }
+                }
+            </td>
+        </tr>
+    }
+      }}
+  </tbody>
+</table>
+      
+<a href="create" class="float-rigth btn btn-info">New fiesta</a>
+</div>

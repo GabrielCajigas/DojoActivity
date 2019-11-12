@@ -1,0 +1,49 @@
+@model TheFiesta
+
+
+<h1 class="col-sm-4 display-7"> Dojo Activity</h1>
+<a href="main" class="m-2 float-right">Home</a>
+<a href="logout" class="m-2 float-right">Logout</a>
+<h1 class="display-6 bg-danger container text-center mb-2 mt-2 text-success"> Plan a Wedding</h1>
+<div class="container mt-3 mb-3">
+   <form action="create" method="post" >
+      <div class="form-group">
+         <div class="row">
+            <div class="col-sm-6">
+               <label >Tittle</label>
+               <input name ="Tittle" type="text" class="form-control" placeholder="Tittle" />
+               <span style="color:red;font-size: 12px;" asp-validation-for="Tittle"></span>
+            </div>
+            <div class="col-sm-6">
+               <label >Time</label>
+               <input name ="Time" type="text" class="form-control" placeholder="Time" />
+               <span style="color:red;font-size: 12px;" asp-validation-for="Time"></span>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-sm-4">
+               <label>Date</label>
+               <input name = "Date" type="date" class="form-control" placeholder="Date" />
+            
+               <span style="color:red;font-size: 12px;" asp-validation-for="Date"></span>
+            </div>
+            <div class="col-sm-4">
+               <label >Duration</label>
+               <input name  ="Duration" type="text" class="form-control" placeholder="Duration" />
+               <span style="color:red;font-size: 12px;" asp-validation-for="Duration"></span>
+                  <select name = "Tiempo">
+                 <option value="hours">Hours</option>
+                 <option value="minutes">Minutes</option>
+                 <option value="days">Days</option>
+               </select>
+            </div>
+             <div class="col-sm-4">
+               <label >Description</label>
+               <textarea name="Description" type="text" class="form-control" placeholder="Description"> </textarea>
+               <span style="color:red;font-size: 12px;" asp-validation-for="Description"></span>
+            </div>
+         </div>
+      </div>
+      <input type="submit" value="Create" class="btn btn-info " >
+   </form>
+</div>

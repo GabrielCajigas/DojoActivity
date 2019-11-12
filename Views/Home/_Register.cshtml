@@ -1,0 +1,18 @@
+ @model Belt.Models.User
+
+    <form action="register" method="post" >
+    <div class="signup">
+		<h2 class="form-title" id="signup"><span>or</span>Sign up</h2>
+		<div class="form-holder">
+			<input name="name" type="text" class="input" placeholder="Name" />
+            <span style="color:red;font-size: 12px;padding: 8px 15px;" asp-validation-for="name"></span>
+			<input asp-for= "email" type="email" class="input" placeholder="Email" />
+            <span style="color:red;font-size: 12px;padding: 8px 15px;" asp-validation-for="email"></span>
+			<input name ="password" type="password" class="input" placeholder="Password" />
+            <span style="color:red;font-size: 12px;padding: 8px 15px;" asp-validation-for="password"></span>
+            <input name="verifypassword" type="password" class="input" placeholder="Confirm Password" />
+            <span style="color:red;font-size: 12px;padding: 8px 15px;" asp-validation-for="verifypassword"></span>
+		</div>
+		<button class="submit-btn">Sign up</button>
+	</div>
+    </form>

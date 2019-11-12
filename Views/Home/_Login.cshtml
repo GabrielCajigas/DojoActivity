@@ -1,0 +1,18 @@
+@model Belt.Models.OldUser
+
+    
+
+<form action="login" method="post">
+	<div id="logindiv" class="login slide-up">
+		<div class="center">
+			<h2 class="form-title" id="login"><span>or</span>Log in</h2>
+			<div class="form-holder">
+				<input name="EmailO" type="email" class="input" placeholder="Email" />
+                <span id="EV" style="color:red;font-size: 12px;padding: 8px 15px;" asp-validation-for="EmailO"></span>
+				<input name="PasswordO" type="password" class="input" placeholder="Password" />
+                <span id="PV" style="color:red;font-size: 12px;padding: 8px 15px;" asp-validation-for="PasswordO"></span>
+			</div>
+			<button class="submit-btn">Log in</button>
+		</div>
+	</div>
+ </form>
